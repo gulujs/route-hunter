@@ -1,0 +1,36 @@
+{
+  "name": "@lunjs/route-hunter",
+  "version": "0.0.1",
+  "description": "A fast http router",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "jest --coverage --coverageReporters text"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lunjs/route-hunter.git"
+  },
+  "author": "jKey Lu <jkeylu@gmail.com> (https://github.com/jkeylu)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lunjs/route-hunter/issues"
+  },
+  "homepage": "https://github.com/lunjs/route-hunter#readme",
+  "keywords": [
+    "http",
+    "router",
+    "fast",
+    "radix",
+    "tree"
+  ],
+  "dependencies": {
+    "@lunjs/decode-uri-component": "0.0.1",
+    "@lunjs/pathname-store": "0.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.5",
+    "find-my-way": "^3.0.4",
+    "jest": "^26.5.2"
+  }
+}

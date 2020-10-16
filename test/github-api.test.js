@@ -13,7 +13,7 @@ describe('GitHub Api', () => {
     for (const api of apis) {
       const handle = rh.find(api.method, api.reqPath);
       expect(handle).toBeTruthy();
-      expect(handle.store).toEqual({ handlerPath: api. handlerPath });
+      expect(handle.store).toEqual({ handlerPath: api.handlerPath });
       for (const pname of api.pnames) {
         expect(handle.params[pname]).toBe(helper.githubApiParamFiller[pname]);
       }

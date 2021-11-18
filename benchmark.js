@@ -1,7 +1,7 @@
-const assert = require('assert');
-const helper = require('./test/helper');
-const { RouteHunter } = require('./');
-const FindMyWay = require('find-my-way');
+import * as assert from 'assert';
+import * as helper from './test/helper.js';
+import { RouteHunter } from './index.js';
+import FindMyWay from 'find-my-way';
 
 const apis = helper.getGithubApis();
 

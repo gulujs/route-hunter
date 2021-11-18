@@ -1,5 +1,6 @@
-const { RouteHunter } = require('..');
-const helper = require('./helper');
+import { expect } from 'chai';
+import { RouteHunter } from '../index.js';
+import * as helper from './helper.js';
 
 describe('GitHub Api', () => {
   it('Find all apis', () => {
@@ -12,10 +13,10 @@ describe('GitHub Api', () => {
 
     for (const api of apis) {
       const handle = rh.find(api.method, api.reqPath);
-      expect(handle).toBeTruthy();
-      expect(handle.store).toEqual({ handlerPath: api.handlerPath });
+      expect(handle).to.be.ok;
+      expect(handle.store).to.deep.equal({ handlerPath: api.handlerPath });
       for (const pname of api.pnames) {
-        expect(handle.params[pname]).toBe(helper.githubApiParamFiller[pname]);
+        expect(handle.params[pname]).to.equal(helper.githubApiParamFiller[pname]);
       }
     }
   });

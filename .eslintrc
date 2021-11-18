@@ -1,0 +1,15 @@
+{
+  "extends": "@lunjs/eslint-config/js/node",
+  "overrides": [
+    {
+      "files": ["test/**/*"],
+      "env": {
+        "mocha": true
+      },
+      "rules": {
+        "no-unused-vars": "off",
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
+}

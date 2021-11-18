@@ -1,7 +1,7 @@
-const { PathnameStore } = require('@lunjs/pathname-store');
-const { decodeURIComponent } = require('@lunjs/decode-uri-component');
+import { PathnameStore } from '@lunjs/pathname-store';
+import { decodeURIComponent } from '@lunjs/decode-uri-component';
 
-class RouteHunter {
+export class RouteHunter {
   constructor(options = {}) {
     options = options || {};
     this.ignoreTrailingSlash = options.ignoreTrailingSlash || false;
@@ -41,7 +41,7 @@ class RouteHunter {
       if (path.endsWith('/')) {
         this.ps.add(path.slice(0, -1), s);
       } else {
-        this.ps.add(path + '/', s);
+        this.ps.add(`${path}/`, s);
       }
     }
   }
@@ -139,7 +139,3 @@ function boxing(box, store, pnames) {
 
   return box;
 }
-
-module.exports = {
-  RouteHunter
-};

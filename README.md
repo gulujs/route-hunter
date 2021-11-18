@@ -9,8 +9,8 @@ npm install @lunjs/route-hunter
 ## Usage
 
 ```js
-const http = require('http');
-const { RouteHunger } = require('@lunjs/route-hunter');
+import * as http from 'http';
+import { RouteHunger } from '@lunjs/route-hunter';
 
 const router = new RouteHunter();
 router.on('GET', '/', (req, res, params) => {

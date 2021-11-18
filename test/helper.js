@@ -1,6 +1,10 @@
-const fs = require('fs');
+import * as fs from 'fs';
+import * as Path from 'path';
+import { fileURLToPath } from 'url';
 
-exports.githubApiParamFiller = {
+const __dirname = Path.dirname(fileURLToPath(import.meta.url));
+
+export const githubApiParamFiller = {
   owner: 'lunjs',
   repo: 'route-hunter',
   artifact_id: '42',
@@ -81,13 +85,13 @@ exports.githubApiParamFiller = {
   gpg_key_id: '42'
 };
 
-exports.getGithubApis = () => {
-  return fs.readFileSync(__dirname + '/fixtures/github-api.txt', 'utf-8').split('\n').reduce((apis, line) => {
+export const getGithubApis = () => {
+  return fs.readFileSync(`${__dirname}/fixtures/github-api.txt`, 'utf-8').split('\n').reduce((apis, line) => {
     if (!line || line.startsWith('#')) {
       return apis;
     }
 
-    let [method, path] = line.split(' ');
+    const [method, path] = line.split(' ');
     const pnames = [];
     const handlerPath = path.replace(/\{([^}]+)\}/g, (_, pname) => {
       pnames.push(pname);
@@ -98,7 +102,8 @@ exports.getGithubApis = () => {
       method: method.toUpperCase(),
       handlerPath,
       pnames,
-      reqPath: path.replace(/\{([^}]+)\}/g, (_, pname) => exports.githubApiParamFiller[pname]),
+      reqPath: path.replace(/\{([^}]+)\}/g, (_, pname) => githubApiParamFiller[pname]),
+      // eslint-disable-next-line no-empty-function
       handler: (req, res, params, store) => {}
     });
 

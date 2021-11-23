@@ -1,6 +1,6 @@
 {
   "name": "@lunjs/route-hunter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A fast http router",
   "type": "module",
   "main": "index.js",

@@ -37,10 +37,10 @@
   },
   "devDependencies": {
     "@lunjs/eslint-config": "^0.4.0",
-    "@types/node": "^16.11.7",
+    "@types/node": "^16.11.9",
     "c8": "^7.10.0",
     "chai": "^4.3.4",
-    "eslint": "^8.2.0",
+    "eslint": "^8.3.0",
     "eslint-plugin-node": "^11.1.0",
     "find-my-way": "^5.0.0",
     "mocha": "^9.1.3"

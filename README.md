@@ -37,4 +37,4 @@ server.listen(3000, err => {
 
 ## License
 
-- [MIT](https://github.com/lunjs/route-hunter/blob/master/LICENSE)
+- [MIT](LICENSE)

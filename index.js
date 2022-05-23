@@ -3,7 +3,6 @@ import { decodeURIComponent } from '@gulujs/decode-uri-component';
 
 export class RouteHunter {
   constructor(options = {}) {
-    options = options || {};
     this.ignoreTrailingSlash = options.ignoreTrailingSlash || false;
 
     this.defaultRoute = null;
@@ -33,15 +32,14 @@ export class RouteHunter {
   }
 
   on(method, path, handler, store) {
-    const s = { method, handler, store };
-    this.ps.add(path, s);
+    const route = { method, handler, store };
+    this.ps.add(path, route);
 
-    const matchAllRE = new RegExp(`\\*(?:${this.ps.paramNamePattern})?$`);
-    if (this.ignoreTrailingSlash && path !== '/' && !matchAllRE.test(path)) {
+    if (this.ignoreTrailingSlash && path !== '/' && !/\*$/.test(path)) {
       if (path.endsWith('/')) {
-        this.ps.add(path.slice(0, -1), s);
+        this.ps.add(path.slice(0, -1), route);
       } else {
-        this.ps.add(`${path}/`, s);
+        this.ps.add(`${path}/`, route);
       }
     }
   }
@@ -53,11 +51,11 @@ export class RouteHunter {
       url = url.substring(0, i);
     }
 
-    const handle = this.find(req.method, url);
-    if (handle === null) {
+    const route = this.find(req.method, url);
+    if (route === null) {
       return this._execDefaultRouteHandler(req, res);
     }
-    return handle.handler(req, res, handle.params, handle.store);
+    return route.handler(req, res, route.params, route.store);
   }
 
   find(method, path) {
@@ -126,16 +124,16 @@ export class RouteHunter {
   }
 }
 
-function boxing(box, store, pnames) {
-  if (!box) {
-    box = {};
+function boxing(routeMap, route, pnames) {
+  if (!routeMap) {
+    routeMap = {};
   }
 
-  box[store.method] = {
+  routeMap[route.method] = {
     pnames,
-    handler: store.handler,
-    store: store.store
+    handler: route.handler,
+    store: route.store
   };
 
-  return box;
+  return routeMap;
 }

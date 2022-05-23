@@ -4,13 +4,13 @@ import { Http2ServerRequest, Http2ServerResponse } from 'http2';
 export type Req = IncomingMessage | Http2ServerRequest;
 export type Res = ServerResponse | Http2ServerResponse;
 
-export interface RouteHunterOptions {
+export interface RouteHunterOptions<TRequest, TResponse> {
     /**
      * Default is `false`
      */
     ignoreTrailingSlash: boolean;
-    defaultRoute: (req: Req, res: Res) => any;
-    onBadUrl: (req: Req, res: Res) => any;
+    defaultRoute: (req: TRequest, res: TResponse) => unknown;
+    onBadUrl: (req: TRequest, res: TResponse) => unknown;
     /**
      * Default is `true`
      */
@@ -29,18 +29,18 @@ export interface RouteHunterOptions {
     paramNamePattern: string;
 }
 
-export type RouteParams = { [key: string]: string };
-export type RouteHandler = (req: Req, res: Res, params: RouteParams, store: any) => any;
-export interface FindResult {
-    handler: RouteHandler;
+export type RouteParams = Record<string, string>;
+export type RouteHandler<TRequest, TResponse> = (req: TRequest, res: TResponse, params: RouteParams, store: unknown) => unknown;
+export interface FindResult<TRequest, TResponse> {
+    handler: RouteHandler<TRequest, TResponse>;
     params: RouteParams;
-    store: any;
+    store: unknown;
 }
 
-export class RouteHunter {
-    constructor(options?: RouteHunterOptions);
-    on(method: string, path: string, handler: RouteHandler, store: any): void;
-    lookup(req: Req, res: Res): any;
-    find(method: string, path: string): FindResult | null;
+export declare class RouteHunter<TRequest = Req, TResponse = Res> {
+    constructor(options?: RouteHunterOptions<TRequest, TResponse>);
+    on(method: string, path: string, handler: RouteHandler<TRequest, TResponse>, store: unknown): void;
+    lookup<T = unknown>(req: TRequest, res: TResponse): T;
+    find(method: string, path: string): FindResult<TRequest, TResponse> | null;
     prettyPrint(): string;
 }

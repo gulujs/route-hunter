@@ -1,16 +1,16 @@
-# @lunjs/route-hunter
+# @gulujs/route-hunter
 
 ## Installation
 
 ```
-npm install @lunjs/route-hunter
+npm install @gulujs/route-hunter
 ```
 
 ## Usage
 
 ```js
 import * as http from 'http';
-import { RouteHunger } from '@lunjs/route-hunter';
+import { RouteHunger } from '@gulujs/route-hunter';
 
 const router = new RouteHunter();
 router.on('GET', '/', (req, res, params) => {

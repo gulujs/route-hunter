@@ -5,19 +5,19 @@ import { fileURLToPath } from 'url';
 const __dirname = Path.dirname(fileURLToPath(import.meta.url));
 
 export const githubApiParamFiller = {
-  owner: 'lunjs',
+  owner: 'gulujs',
   repo: 'route-hunter',
   artifact_id: '42',
   archive_format: 'ARCHIVE_FORMAT',
   run_id: '42',
-  org: 'lunjs',
+  org: 'gulujs',
   secret_name: 'SECRET_NAME',
   repository_id: '42',
   runner_id: '42',
   runner_group_id: '42',
   workflow_id: '42',
   job_id: '42',
-  username: 'lunjs',
+  username: 'gulujs',
   thread_id: '42',
   code: 'CODE',
   installation_id: '42',
@@ -32,7 +32,7 @@ export const githubApiParamFiller = {
   ref: 'REF',
   alert_number: '42',
   key: 'KEY',
-  enterprise: 'lunjs',
+  enterprise: 'gulujs',
   org_id: '42',
   scim_group_id: 'SCIM_GROUP_ID',
   scim_user_id: 'SCIM_USER_ID',
@@ -63,7 +63,7 @@ export const githubApiParamFiller = {
   column_id: '42',
   pull_number: '42',
   review_id: '42',
-  team_slug: 'lunjs',
+  team_slug: 'gulujs',
   discussion_number: '42',
   comment_number: '42',
   reaction_id: '42',
@@ -81,7 +81,7 @@ export const githubApiParamFiller = {
   asset_id: '42',
   tag: 'TAG',
   release_id: '42',
-  target_user: 'lunjs',
+  target_user: 'gulujs',
   gpg_key_id: '42'
 };
 

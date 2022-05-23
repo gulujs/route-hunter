@@ -1,6 +1,6 @@
 {
-  "name": "@lunjs/route-hunter",
-  "version": "0.1.0",
+  "name": "@gulujs/route-hunter",
+  "version": "0.2.0",
   "description": "A fast http router",
   "type": "module",
   "main": "index.js",
@@ -12,18 +12,19 @@
   "scripts": {
     "lint": "eslint --report-unused-disable-directives --ignore-path .gitignore --ext .js .",
     "test": "mocha",
-    "coverage": "c8 npm test"
+    "coverage": "c8 npm test",
+    "prepublishOnly": "npm run lint && npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lunjs/route-hunter.git"
+    "url": "git+https://github.com/gulujs/route-hunter.git"
   },
   "author": "jKey Lu <jkeylu@gmail.com> (https://github.com/jkeylu)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lunjs/route-hunter/issues"
+    "url": "https://github.com/gulujs/route-hunter/issues"
   },
-  "homepage": "https://github.com/lunjs/route-hunter#readme",
+  "homepage": "https://github.com/gulujs/route-hunter#readme",
   "keywords": [
     "http",
     "router",
@@ -32,18 +33,18 @@
     "tree"
   ],
   "dependencies": {
-    "@lunjs/decode-uri-component": "^0.1.0",
-    "@lunjs/pathname-store": "^0.1.0"
+    "@gulujs/decode-uri-component": "^0.2.0",
+    "@gulujs/pathname-store": "^0.2.0"
   },
   "devDependencies": {
-    "@lunjs/eslint-config": "^0.4.0",
-    "@types/node": "^16.11.9",
-    "c8": "^7.10.0",
-    "chai": "^4.3.4",
-    "eslint": "^8.3.0",
+    "@gulujs/eslint-config": "^0.5.0",
+    "@types/node": "^16.11.36",
+    "c8": "^7.11.3",
+    "chai": "^4.3.6",
+    "eslint": "^8.16.0",
     "eslint-plugin-node": "^11.1.0",
-    "find-my-way": "^5.0.0",
-    "mocha": "^9.1.3"
+    "find-my-way": "^6.0.0",
+    "mocha": "^10.0.0"
   },
   "engines": {
     "node": ">=14.0.0"

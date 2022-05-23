@@ -1,5 +1,5 @@
-import { PathnameStore } from '@lunjs/pathname-store';
-import { decodeURIComponent } from '@lunjs/decode-uri-component';
+import { PathnameStore } from '@gulujs/pathname-store';
+import { decodeURIComponent } from '@gulujs/decode-uri-component';
 
 export class RouteHunter {
   constructor(options = {}) {

@@ -69,12 +69,12 @@ export class RouteHunter {
 
     for (let i = 0, l = pnames.length; i < l; i++) {
       if (r.pvalues[i].length > this.maxParamLength) {
-        return this._createOnBadUrlHandle(r.pvalues[i]);
+        return this._createOnBadUrlRoute(r.pvalues[i]);
       }
 
       const decoded = decodeURIComponent(r.pvalues[i]);
       if (decoded === null) {
-        return this._createOnBadUrlHandle(r.pvalues[i]);
+        return this._createOnBadUrlRoute(r.pvalues[i]);
       }
 
       params[pnames[i]] = decoded;
@@ -111,7 +111,7 @@ export class RouteHunter {
     }
   }
 
-  _createOnBadUrlHandle(pvalue) {
+  _createOnBadUrlRoute(pvalue) {
     if (this.onBadUrl === null) {
       return null;
     }

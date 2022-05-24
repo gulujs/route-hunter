@@ -47,5 +47,6 @@ export declare class RouteHunter<TRequest = Req, TResponse = Res> {
   on(method: string, path: string, handler: RouteHandler<TRequest, TResponse>, store: unknown): void;
   lookup<T = unknown>(req: TRequest, res: TResponse): T;
   find(method: string, path: string): FindResult<TRequest, TResponse> | null;
+  reset(): void;
   prettyPrint(): string;
 }

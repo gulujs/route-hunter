@@ -87,6 +87,10 @@ export class RouteHunter {
     };
   }
 
+  reset() {
+    this.ps.reset();
+  }
+
   prettyPrint() {
     return this.ps.prettyPrint({
       label(node) {

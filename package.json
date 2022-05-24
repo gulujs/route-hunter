@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "@gulujs/decode-uri-component": "^0.2.0",
-    "@gulujs/pathname-store": "^0.2.0"
+    "@gulujs/pathname-store": "^0.2.1"
   },
   "devDependencies": {
     "@gulujs/eslint-config": "^0.5.0",

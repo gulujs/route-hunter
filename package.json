@@ -33,8 +33,8 @@
     "tree"
   ],
   "dependencies": {
-    "@gulujs/decode-uri-component": "^0.2.0",
-    "@gulujs/pathname-store": "^0.2.1"
+    "@gulujs/decode-uri-component": "^0.2.1",
+    "@gulujs/pathname-store": "^0.2.2"
   },
   "devDependencies": {
     "@gulujs/eslint-config": "^0.5.0",
@@ -43,7 +43,7 @@
     "chai": "^4.3.6",
     "eslint": "^8.16.0",
     "eslint-plugin-node": "^11.1.0",
-    "find-my-way": "^6.0.0",
+    "find-my-way": "^6.2.0",
     "mocha": "^10.0.0"
   },
   "engines": {

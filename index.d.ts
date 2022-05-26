@@ -4,7 +4,7 @@ import { Http2ServerRequest, Http2ServerResponse } from 'http2';
 export type Req = IncomingMessage | Http2ServerRequest;
 export type Res = ServerResponse | Http2ServerResponse;
 
-export type DefaultRouteHandler<TRequest, TResponse> = (req: TRequest, res: TResponse) => unknown;
+export type DefaultRouteHandler<TRequest, TResponse> = (req: TRequest, res: TResponse) => any;
 export interface RouteHunterOptions<TRequest, TResponse> {
   /**
    * Default is `false`
@@ -31,22 +31,23 @@ export interface RouteHunterOptions<TRequest, TResponse> {
 }
 
 export type RouteParams = Record<string, string>;
-export type RouteHandler<TRequest, TResponse> = (req: TRequest, res: TResponse, params: RouteParams, store: unknown) => unknown;
-export interface FindResult<TRequest, TResponse> {
+export type RouteHandler<TRequest, TResponse> = (req: TRequest, res: TResponse, params: RouteParams, store: any) => any;
+export interface FindResult<T, TRequest, TResponse> {
   handler: RouteHandler<TRequest, TResponse>;
   params: RouteParams;
-  store: unknown;
+  store: T;
 }
 export declare class RouteHunter<TRequest = Req, TResponse = Res> {
   ignoreTrailingSlash: boolean;
   maxParamLength: number;
+  caseSensitive: boolean;
   defaultRoute: DefaultRouteHandler<TRequest, TResponse> | null;
   onBadUrl: DefaultRouteHandler<TRequest, TResponse> | null;
 
   constructor(options?: RouteHunterOptions<TRequest, TResponse>);
-  on(method: string, path: string, handler: RouteHandler<TRequest, TResponse>, store: unknown): void;
+  on(method: string, path: string, handler: RouteHandler<TRequest, TResponse>, store: any): void;
   lookup<T = unknown>(req: TRequest, res: TResponse): T;
-  find(method: string, path: string): FindResult<TRequest, TResponse> | null;
+  find<T = unknown>(method: string, path: string): FindResult<T, TRequest, TResponse> | null;
   reset(): void;
   prettyPrint(): string;
 }

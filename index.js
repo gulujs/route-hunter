@@ -2,6 +2,14 @@ import { PathnameStore } from '@gulujs/pathname-store';
 import { decodeURIComponent } from '@gulujs/decode-uri-component';
 
 export class RouteHunter {
+  get caseSensitive() {
+    return this.ps.caseSensitive;
+  }
+
+  set caseSensitive(value) {
+    this.ps.caseSensitive = value;
+  }
+
   constructor(options = {}) {
     this.ignoreTrailingSlash = options.ignoreTrailingSlash || false;
 
